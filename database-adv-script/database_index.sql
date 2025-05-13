@@ -11,3 +11,7 @@ CREATE INDEX idx_booking_dates ON Booking(start_date, end_date);
 CREATE INDEX idx_property_id ON Property(id);
 CREATE INDEX idx_property_location ON Property(location);
 CREATE INDEX Idx_property_host_id ON Property(host_id);
+
+-- Measure query performance after indexing
+EXPLAIN ANALYZE SELECT * FROM Booking WHERE user_id = 101;
+EXPLAIN ANALYZE SELECT * FROM Property WHERE location = 'Lagos' AND price < 4500;
