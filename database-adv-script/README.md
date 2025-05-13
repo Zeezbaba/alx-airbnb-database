@@ -53,4 +53,25 @@ We wrote two types of subqueries:
 
 - **Description**: This subquery runs once for each row in the outer query, using the user_id dynamically from the outer scope.
 
+
+# 📌 SQL Aggregation & Window Functions
+
+## 📝 Task Summary
+
+This task focused on using SQL **aggregation functions** and **window functions** to analyze booking data in a property management system.
+
+### ✅ Key Objectives
+
+1. **Count Total Bookings per User**  
+   - Used `COUNT()` with `GROUP BY` to find how many bookings each user made.
+
+2. **Rank Properties by Bookings**  
+   - Applied the `RANK()` window function to list properties based on the total number of bookings received.
+
+### 🧠 Concepts Applied
+
+- **Aggregation**: To summarize data (e.g., total bookings).
+- **GROUP BY**: To group records by user or property.
+- **Window Functions**: To assign rankings without collapsing rows.
+
 ---
