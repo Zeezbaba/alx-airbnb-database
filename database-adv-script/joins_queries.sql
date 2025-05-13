@@ -13,7 +13,9 @@ SELECT
 FROM
     Booking
 INNER JOIN
-    User ON Booking.user_id = User.user_id;
+    User ON Booking.user_id = User.user_id
+ORDER BY
+    Booking.start_date DESC;
 
 -- Retreive all properties and their reviews, includin ones with no review
 SELECT
@@ -28,7 +30,9 @@ SELECT
 FROM
     Property
 LEFT JOIN
-    Review ON Property.property_id = Review.property_id;
+    Review ON Property.property_id = Review.property_id
+ORDER BY
+    Property.name ASC;
 
 -- Retreive all users and all bookings even if the user has no booking
 -- or a booking is not linked to a user
@@ -46,4 +50,6 @@ SELECT
 FROM
     User
 FULL OUTER JOIN
-    Booking ON User.user_id = Booking.user_id;
+    Booking ON User.user_id = Booking.user_id
+ORDER BY
+    User.first_name ASC;
