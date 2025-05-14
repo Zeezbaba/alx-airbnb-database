@@ -11,7 +11,7 @@ To continuously monitor and refine the database's performance by analyzing query
 
 - ### 1. Booking Lookup by User ID
   ```sql
-    SELECT * FROM bookings WHERE user_id = 101;
+    SELECT * FROM Booking WHERE user_id = 101;
 
 **Before Optimization**:
 
@@ -23,7 +23,7 @@ To continuously monitor and refine the database's performance by analyzing query
 
 **Optimization**:
 
-- Added index: CREATE INDEX idx_user_id ON bookings(user_id);
+- Added index: CREATE INDEX idx_user_id ON Booking(user_id);
 
 **After Optimization**:
 
@@ -35,7 +35,7 @@ To continuously monitor and refine the database's performance by analyzing query
 
 - ### 2. Property Search by Location and Price Range
   ```sql
-    SELECT * FROM properties WHERE location = 'Lagos' AND price BETWEEN 4000 AND 6000;
+    SELECT * FROM Property WHERE location = 'Lagos' AND price BETWEEN 4000 AND 6000;
 **Before Optimization**:
 
 - Partial index use on location
@@ -44,7 +44,7 @@ To continuously monitor and refine the database's performance by analyzing query
 
 **Optimization**:
 
-- Composite index added: CREATE INDEX idx_location_price ON properties(location, price);
+- Composite index added: CREATE INDEX idx_location_price ON Property(location, amount);
 
 **After Optimization**:
 
@@ -55,9 +55,9 @@ To continuously monitor and refine the database's performance by analyzing query
 - ### 3. Bookings Joined with Payments
   ```sql
     SELECT b.id, u.name, p.amount
-    FROM bookings b
-    JOIN users u ON b.user_id = u.id
-    JOIN payments p ON b.payment_id = p.id
+    FROM Booking b
+    JOIN User u ON b.user_id = u.id
+    JOIN Payment p ON b.payment_id = p.id
     WHERE b.status = 'confirmed';
 **Before Optimization**:
 
