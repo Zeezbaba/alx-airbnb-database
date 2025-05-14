@@ -1,6 +1,7 @@
 -- Objective: Refactor complex queries to improve performance.
 -- initial query that retrieves all bookings along with,
 -- the user details, property details, and payment details
+EXPLAIN
 SELECT
     Booking.id,
     Booking.start_date,
@@ -23,3 +24,4 @@ FROM
 INNER JOIN User ON Booking.user_id = User.user_id
 INNER JOIN Property ON Booking.property_id = Property.property_id
 LEFT JOIN Payment ON Booking.payment_id = Payment.payment_id
+WHERE Booking.status = 'confirmed' AND Payment.status = 'paid';
